@@ -12,20 +12,22 @@ public class Adventurer
     // This is a mutable property it has a "get" and a "set"
     //  So it can be read and changed by any code in the application
     public int Awesomeness { get; set; }
+    public Hat Hat { get; }
     public Robe ColorfulRobe { get; }
 
     // A constructor to make a new Adventurer object with a given name
-    public Adventurer(string name, Robe robe)
+    public Adventurer(string name, Robe robe, Hat hat)
     {
         Name = name;
         Awesomeness = 50;
         ColorfulRobe = robe;
+        Hat = hat;
     }
 
     public string GetDescription()
     {
 
-        return $"Name: {Name}. Robe: {ColorfulRobe.Length} inch long robe that consists of the colors {String.Join(", ", ColorfulRobe.Colors)}.";
+        return $"Name: {Name}. Robe: {ColorfulRobe.Length} inch long robe that consists of the colors {String.Join(", ", ColorfulRobe.Colors)}. Hat: A rather {Hat.ShininessDescription} hat.";
     }
 
     // This method returns a string that describes the Adventurer's status

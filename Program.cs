@@ -45,6 +45,11 @@ Robe myRobe = new Robe()
     Length = 80
 };
 
+Hat myHat = new Hat()
+{
+    ShininessLevel = 7
+};
+
 bool playAgain = true;
 
 while (playAgain)
@@ -56,7 +61,7 @@ Console.WriteLine($"Enter your name to begin your adventure:");
 string adventurerNameInput = Console.ReadLine();
 
 
-Adventurer theAdventurer = new Adventurer(adventurerNameInput, myRobe);
+Adventurer theAdventurer = new Adventurer(adventurerNameInput, myRobe, myHat);
 
 // A list of challenges for the Adventurer to complete
 // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
