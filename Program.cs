@@ -6,6 +6,10 @@
 //   a correct answer
 //   a number of awesome points to gain or lose depending on the success of the challenge
 Challenge twoPlusTwo = new Challenge("2 + 2?", 4, 10);
+Challenge twoPlusThree = new Challenge("2 + 3?", 5, 10);
+Challenge twoPlusFour = new Challenge("2 + 4?", 6, 10);
+Challenge twoPlusFive = new Challenge("2 + 5?", 7, 10);
+Challenge twoPlusSix = new Challenge("2 + 6?", 8, 10);
 Challenge theAnswer = new Challenge(
     "What's the answer to life, the universe and everything?", 42, 25);
 Challenge whatSecond = new Challenge(
@@ -50,6 +54,9 @@ Hat myHat = new Hat()
     ShininessLevel = 7
 };
 
+Prize prize = new Prize("1 gold coin");
+
+
 bool playAgain = true;
 
 while (playAgain)
@@ -68,18 +75,26 @@ Adventurer theAdventurer = new Adventurer(adventurerNameInput, myRobe, myHat);
 List<Challenge> challenges = new List<Challenge>()
 {
     twoPlusTwo,
+    twoPlusThree,
+    twoPlusFour,
+    twoPlusFive,
+    twoPlusSix,
     theAnswer,
     whatSecond,
     guessRandom,
     favoriteBeatle
 };
 
+
+
+
 Console.WriteLine(theAdventurer.GetDescription());
 
 // Loop through all the challenges and subject the Adventurer to them
-foreach (Challenge challenge in challenges)
+for (int i = 0; i < 5; i++)
 {
-    challenge.RunChallenge(theAdventurer);
+    int randomChallengeNumber = new Random().Next() % 10 - 1;
+    challenges[randomChallengeNumber].RunChallenge(theAdventurer);
 }
 
 // This code examines how Awesome the Adventurer is after completing the challenges
@@ -96,6 +111,10 @@ else
 {
     Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
 }
+
+Console.WriteLine($"Your reward is:");
+prize.ShowPrize(theAdventurer);
+
 
 Console.WriteLine($"Would you like to repeat the quest?");
 
