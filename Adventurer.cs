@@ -12,6 +12,7 @@ public class Adventurer
     // This is a mutable property it has a "get" and a "set"
     //  So it can be read and changed by any code in the application
     public int Awesomeness { get; set; }
+    public int CorrectGuesses { get; set; }
     public Hat Hat { get; }
     public Robe ColorfulRobe { get; }
 
@@ -20,6 +21,7 @@ public class Adventurer
     {
         Name = name;
         Awesomeness = 50;
+        CorrectGuesses = 0;
         ColorfulRobe = robe;
         Hat = hat;
     }

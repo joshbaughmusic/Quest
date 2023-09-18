@@ -58,6 +58,7 @@ Prize prize = new Prize("1 gold coin");
 
 
 bool playAgain = true;
+int replayBonus = 0;
 
 while (playAgain)
 {
@@ -69,6 +70,11 @@ string adventurerNameInput = Console.ReadLine();
 
 
 Adventurer theAdventurer = new Adventurer(adventurerNameInput, myRobe, myHat);
+
+theAdventurer.Awesomeness += replayBonus;
+
+Console.WriteLine($"initial awesomeness = {theAdventurer.Awesomeness}");
+
 
 // A list of challenges for the Adventurer to complete
 // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
@@ -112,7 +118,7 @@ else
     Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
 }
 
-Console.WriteLine($"Your reward is:");
+Console.WriteLine($"You got {theAdventurer.CorrectGuesses} challenges correct. Your reward is:");
 prize.ShowPrize(theAdventurer);
 
 
@@ -123,5 +129,7 @@ string playAgainInput = Console.ReadLine();
 if (playAgainInput == "no")
 {
     playAgain = false;
+} else {
+    replayBonus += theAdventurer.CorrectGuesses * 10;
 }
 }
