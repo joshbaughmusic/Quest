@@ -33,6 +33,18 @@ Challenge favoriteBeatle = new Challenge(
 int minAwesomeness = 0;
 int maxAwesomeness = 100;
 
+List<string> robeColors = new List<string> {
+    "red",
+    "blue",
+    "purple"
+};
+
+Robe myRobe = new Robe()
+{
+    Colors = robeColors,
+    Length = 80
+};
+
 bool playAgain = true;
 
 while (playAgain)
@@ -43,7 +55,8 @@ Console.WriteLine($"Enter your name to begin your adventure:");
 
 string adventurerNameInput = Console.ReadLine();
 
-Adventurer theAdventurer = new Adventurer(adventurerNameInput);
+
+Adventurer theAdventurer = new Adventurer(adventurerNameInput, myRobe);
 
 // A list of challenges for the Adventurer to complete
 // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
@@ -55,6 +68,8 @@ List<Challenge> challenges = new List<Challenge>()
     guessRandom,
     favoriteBeatle
 };
+
+Console.WriteLine(theAdventurer.GetDescription());
 
 // Loop through all the challenges and subject the Adventurer to them
 foreach (Challenge challenge in challenges)
