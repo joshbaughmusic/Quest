@@ -33,6 +33,11 @@ Challenge favoriteBeatle = new Challenge(
 int minAwesomeness = 0;
 int maxAwesomeness = 100;
 
+bool playAgain = true;
+
+while (playAgain)
+{
+
 // Make a new "Adventurer" object using the "Adventurer" class
 Console.WriteLine($"Enter your name to begin your adventure:");
 
@@ -70,4 +75,14 @@ else if (theAdventurer.Awesomeness <= minAwesomeness)
 else
 {
     Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
+}
+
+Console.WriteLine($"Would you like to repeat the quest?");
+
+string playAgainInput = Console.ReadLine();
+
+if (playAgainInput == "no")
+{
+    playAgain = false;
+}
 }
